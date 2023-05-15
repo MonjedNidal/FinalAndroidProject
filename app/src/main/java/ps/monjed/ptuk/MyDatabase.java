@@ -32,7 +32,7 @@ public class MyDatabase extends SQLiteOpenHelper {
         SQLiteDatabase reader = getReadableDatabase();
         ArrayList<Student> list = new ArrayList<>();
         String sql = "SELECT * FROM students";
-        Cursor cursor = reader.rawQuery(sql,null);
+        @SuppressLint("Recycle") Cursor cursor = reader.rawQuery(sql,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Student s = new Student(
@@ -46,9 +46,15 @@ public class MyDatabase extends SQLiteOpenHelper {
         return list;
     }
 
+    public boolean delete(int id) {
+        SQLiteDatabase writer = getWritableDatabase();
+        String sql = "DELETE FROM students WHERE id = ?";
+        writer.execSQL(sql, new String[]{String.valueOf(id)});
+        return true;
+    }
 
     public ArrayList<Student> getSorted(){
-        ArrayList<Student> list = new ArrayList<>();
+        ArrayList<Student> list;
         list = getAll();
         list.sort((s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
         return list;
@@ -63,7 +69,7 @@ public class MyDatabase extends SQLiteOpenHelper {
     }
 
     public double getAvg(){
-        ArrayList<Student> list = new ArrayList<>();
+        ArrayList<Student> list;
         list = getAll();
 
         double sum = 0;

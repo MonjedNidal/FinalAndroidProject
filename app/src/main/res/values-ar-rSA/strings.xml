@@ -8,4 +8,5 @@
     <string name="mark">العلامة</string>
     <string name="name">الاسم</string>
     <string name="average">المعدل</string>
+    <string name="delete">حذف الطالب</string>
 </resources>

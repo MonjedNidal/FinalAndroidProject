@@ -7,4 +7,5 @@
     <string name="name">Name</string>
     <string name="app_name">Students Marks</string>
     <string name="average">Average</string>
+    <string name="delete">Delete</string>
 </resources>

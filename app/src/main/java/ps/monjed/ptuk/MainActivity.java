@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     static MyAdapter myAdapter;
     ListView list;
     MyDatabase myDatabase;
+    boolean isSorted = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
 //        students.add(new Student(66, "Wael", 99));
         list = findViewById(R.id.list);
 
-        students = myDatabase.getAll();
+        if(isSorted){
+            students = myDatabase.getSorted();
+        }else {
+            students = myDatabase.getAll();
+        }
         myAdapter = new MyAdapter();
         list.setAdapter(myAdapter);
     }
@@ -53,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"The Average = "+myDatabase.getAvg(), Toast.LENGTH_SHORT).show();
         }else if(id == R.id.menu_add){
             Intent intent = new Intent(MainActivity.this,AddStudentActivity.class);
-//            intent.putExtra("adabter", myAdapter);
             startActivity(intent);
         }else if(id == R.id.menu_first){
             goToDetails(R.id.menu_first);
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.menu_sort){
             students = myDatabase.getSorted();
             myAdapter.notifyDataSetChanged();
+            isSorted = true;
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -103,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             return students.get(i).getId();
         }
 
+        @SuppressLint("ViewHolder")
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             @SuppressLint("ViewHolder")
@@ -113,6 +120,23 @@ public class MainActivity extends AppCompatActivity {
 
             name.setText(students.get(i).getName());
             mark.setText(String.valueOf(students.get(i).getMark()));
+
+            v.setOnLongClickListener(view1 -> {
+                PopupMenu popup = new PopupMenu(MainActivity.this, view1);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(item -> {
+                    if (item.getItemId() == R.id.popup_delete) {
+                        if(myDatabase.delete(students.get(i).getId())){
+                            notifyDataSetChanged();
+                            recreate();
+                        }
+                    }
+                    return false;
+                });
+                popup.show();
+                return true;
+            });
 
             return v;
         }
