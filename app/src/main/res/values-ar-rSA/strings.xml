@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">علامات الطلاب</string>
+    <string name="add">اضافة</string>
+    <string name="get_first">اول طالب</string>
+    <string name="get_last">اخر طالب</string>
+    <string name="sort">ترتيب الطلاب</string>
+    <string name="mark">العلامة</string>
+    <string name="name">الاسم</string>
+    <string name="average">المعدل</string>
+</resources>

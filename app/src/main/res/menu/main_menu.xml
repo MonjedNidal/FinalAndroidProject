@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_average"
+        android:title="@string/average"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_add"
+        android:title="@string/add"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_first"
+        android:title="@string/get_first"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_last"
+        android:title="@string/get_last"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_sort"
+        android:title="@string/sort"
+        app:showAsAction="never" />
+</menu>

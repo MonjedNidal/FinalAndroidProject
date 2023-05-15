@@ -1,0 +1,10 @@
+<resources>
+    <string name="add">Add</string>
+    <string name="get_first">Get First</string>
+    <string name="get_last">Get Last</string>
+    <string name="sort">Sort</string>
+    <string name="mark">Mark</string>
+    <string name="name">Name</string>
+    <string name="app_name">Students Marks</string>
+    <string name="average">Average</string>
+</resources>
