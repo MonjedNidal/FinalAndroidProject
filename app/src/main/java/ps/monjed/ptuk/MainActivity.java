@@ -3,6 +3,7 @@ package ps.monjed.ptuk;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+//Monjed's Solution
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,12 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //Monjed's Solution
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //Monjed's Solution
         int id = item.getItemId();
         if(id == R.id.menu_average){
             Toast.makeText(this,"The Average = "+myDatabase.getAvg(), Toast.LENGTH_SHORT).show();
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.menu_last){
             student = myDatabase.getLast(students);
         }
-
+        //Monjed's Solution
         if(student != null){
             Intent intent = new Intent(MainActivity.this,Details.class);
             intent.putExtra("name", student.getName());
@@ -96,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class MyAdapter extends BaseAdapter{
+        //Monjed's Solution
 
         @Override
         public int getCount() {
@@ -120,8 +124,9 @@ public class MainActivity extends AppCompatActivity {
             TextView name, mark;
             name = v.findViewById(R.id.item_name);
             mark = v.findViewById(R.id.item_mark);
+            //Monjed's Solution
 
-            name.setText(students.get(i).getName());
+            name.setText(students.get(i).getName());//Monjed's Solution
             mark.setText(String.valueOf(students.get(i).getMark()));
 
             v.setOnLongClickListener(view1 -> {
@@ -132,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
                     if (item.getItemId() == R.id.popup_delete) {
                         if(myDatabase.delete(students.get(i).getId())){
                             notifyDataSetChanged();
-                            recreate();
+                            recreate();//Monjed's Solution
                         }
                     }
                     return false;
                 });
                 popup.show();
-                return true;
+                return true;//Monjed's Solution
             });
 
             return v;
