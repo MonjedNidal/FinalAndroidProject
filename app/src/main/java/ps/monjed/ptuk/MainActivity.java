@@ -20,6 +20,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    
+    
+    //Monjed's Solution
     ArrayList<Student> students;
     static MyAdapter myAdapter;
     ListView list;
