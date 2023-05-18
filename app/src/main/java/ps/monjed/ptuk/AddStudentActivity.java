@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class AddStudentActivity extends AppCompatActivity {
 
+    
+    //Monjed's Solution
     TextView addName, addMark;
     Button add;
     @Override
