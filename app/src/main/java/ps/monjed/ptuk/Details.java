@@ -12,6 +12,8 @@ import android.widget.TextView;
 public class Details extends AppCompatActivity {
 
 
+    
+    //Monjed's Solution
     TextView name, mark;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
