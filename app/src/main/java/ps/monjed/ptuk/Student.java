@@ -7,6 +7,7 @@ public class Student {
     private int mark;
 
     public Student(String name, int mark) {
+        //Monjed's Solution
         this.name = name;
         this.mark = mark;
     }
@@ -16,6 +17,7 @@ public class Student {
     }
 
     public String getName() {
+        //Monjed's Solution
         return name;
     }
 
@@ -23,6 +25,7 @@ public class Student {
         return id;
     }
 
+    //Monjed's Solution
     public int getMark() {
         return mark;
     }
