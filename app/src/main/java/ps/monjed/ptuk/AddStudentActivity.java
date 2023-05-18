@@ -31,18 +31,18 @@ public class AddStudentActivity extends AppCompatActivity {
                 Student student = new Student(addName.getText()+"", Integer.parseInt(addMark.getText()+""));
                 MyDatabase myDatabase = new MyDatabase(AddStudentActivity.this);
                 myDatabase.addStudent(student);
-                MainActivity.myAdapter.notifyDataSetChanged();
+                MainActivity.myAdapter.notifyDataSetChanged();//Monjed's Solution
                 clear();
             }
         });
 
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
+        if (actionBar != null) {//Monjed's Solution
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
 
-    public void clear(){
+    public void clear(){//Monjed's Solution
         addName.setText("");
         addMark.setText("");
     }
