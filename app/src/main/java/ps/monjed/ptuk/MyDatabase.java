@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class MyDatabase extends SQLiteOpenHelper {
+    //Monjed's Solution
     private static final String DATABASE_NAME = "students.db";
     private static final int DATABASE_VERSION = 1;
 
