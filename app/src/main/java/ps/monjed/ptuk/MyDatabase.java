@@ -47,6 +47,7 @@ public class MyDatabase extends SQLiteOpenHelper {
         return list;
     }
 
+    //Monjed's Solution
     public boolean delete(int id) {
         SQLiteDatabase writer = getWritableDatabase();
         String sql = "DELETE FROM students WHERE id = ?";
@@ -70,6 +71,7 @@ public class MyDatabase extends SQLiteOpenHelper {
     }
 
     public double getAvg(){
+        //Monjed's Solution
         ArrayList<Student> list;
         list = getAll();
 
@@ -88,6 +90,7 @@ public class MyDatabase extends SQLiteOpenHelper {
     }
 
     public Student getLast(ArrayList<Student> list){
+        //Monjed's Solution
         if(!list.isEmpty()){
             return list.get(list.size()-1);
         }
